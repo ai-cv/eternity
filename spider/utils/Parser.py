@@ -28,8 +28,7 @@ class Parser:
             contextList.append(themeNode)
         node.contextList = contextList
 
-    def commentParse(self, html):
-        dom = etree.HTML(html)
-        dom.xpath('//*[@id="zwconbody"]/div')
-        html_tree = dom.xpath('//div[contains(@class, "articleh normal_post")]/span[contains(@class, "l")]')
+    def commentParse(self, themeNode):
+        dom = etree.HTML(themeNode.html)
+        themeNode.theme = dom.xpath('//*[@id="zwconbody"]/div')[0].text
         commentList = []

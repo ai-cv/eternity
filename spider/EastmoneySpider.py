@@ -17,7 +17,8 @@ class Spider:
             self.request(self.node)
             parse.themeParse(self.node)
             for theme in self.node.contextList:
-                commentHtml = self.request(theme)
+                self.request(theme)
+                parse.commentParse(theme)
 
         except ur.URLError as e:
             if hasattr(e, "code"):
