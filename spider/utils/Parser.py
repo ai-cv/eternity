@@ -3,7 +3,7 @@
 
 from lxml import etree
 from lxml.html import fromstring, tostring
-from bean.CommentNode import CommentNode
+from bean.ThemeNode import ThemeNode
 
 class Parser:
 
@@ -22,8 +22,8 @@ class Parser:
             authorDom = etree.HTML(authorStr).xpath('//a')[0]
             titleHref = titleDom.attrib['href']
             title = titleDom.text
-            commentNode = CommentNode(i, time, title, titleHref)
-            strFormat = "{:^1}  |  {:^8} |  {:^8} |  {:^19}"
-            print(strFormat.format(commentNode.nodeId, commentNode.time, commentNode.content, commentNode.href))
-            contextList.append(commentNode)
+            themeNode = ThemeNode(i, time, titleHref)
+            strFormat = "{:^1}  |  {:^8} | {:^19}"
+            print(strFormat.format(themeNode.nodeId, themeNode.time, themeNode.href))
+            contextList.append(themeNode)
         return contextList

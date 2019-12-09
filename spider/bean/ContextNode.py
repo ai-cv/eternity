@@ -11,3 +11,4 @@ class ContentNode(Node):
         super(nodeId, time, content)
         self.commentNum = commentNum
         self.title = title
+
