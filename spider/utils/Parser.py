@@ -5,10 +5,10 @@ from lxml import etree
 from lxml.html import fromstring, tostring
 from bean.ThemeNode import ThemeNode
 
-class Parser:
 
-    def commentParse(self, html):
-        dom = etree.HTML(html)
+class Parser:
+    def themeParse(self, node):
+        dom = etree.HTML(node.html)
         dom.xpath('/html[1]/body[1]/div[6]/div[2]/div[4]/div[9]/span[1]')
         html_tree = dom.xpath('//div[contains(@class, "articleh normal_post")]/span[contains(@class, "l")]')
         contextList = []
@@ -26,4 +26,10 @@ class Parser:
             strFormat = "{:^1}  |  {:^8} | {:^19}"
             print(strFormat.format(themeNode.nodeId, themeNode.time, themeNode.href))
             contextList.append(themeNode)
-        return contextList
+        node.contextList = contextList
+
+    def commentParse(self, html):
+        dom = etree.HTML(html)
+        dom.xpath('//*[@id="zwconbody"]/div')
+        html_tree = dom.xpath('//div[contains(@class, "articleh normal_post")]/span[contains(@class, "l")]')
+        commentList = []

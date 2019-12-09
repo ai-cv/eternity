@@ -2,20 +2,22 @@
 # -*-coding:utf-8 -*-
 
 from utils.Parser import Parser
-from lxml import etree
 import urllib.request as ur
-from lxml.html import fromstring, tostring
-import urllib.request as ur
+from bean.RootNode import RootNode
+
 
 class Spider:
 
-    def go(self, url):
+    def __init__(self, node):
+        self.node = node
+
+    def go(self):
         parse = Parser()
         try:
-            request = ur.Request(url)
-            response = ur.urlopen(request)
-            html = response.read().decode('utf-8')
-            parse.commentParse(html)
+            self.request(self.node)
+            parse.themeParse(self.node)
+            for theme in self.node.contextList:
+                commentHtml = self.request(theme)
 
         except ur.URLError as e:
             if hasattr(e, "code"):
@@ -23,10 +25,15 @@ class Spider:
             if hasattr(e, "reason"):
                 print(e.reason)
 
+    def request(self, node):
+        request = ur.Request(node.href)
+        response = ur.urlopen(request)
+        node.html = response.read().decode('utf-8')
+
 
 if __name__ == '__main__':
     code = "002243"
-    url = "http://guba.eastmoney.com/list," + code + ".html"
-    spider = Spider()
-    spider.go(url)
+    rootNode = RootNode(code)
+    spider = Spider(rootNode)
+    spider.go()
 

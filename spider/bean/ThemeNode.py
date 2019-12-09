@@ -7,8 +7,13 @@ class ThemeNode(Node):
     @:param nodelId 评论节点唯一识别符
     @:param time 评论时间
     @:param href 链接
-    @:param 主题下评论列表
+    @:param theme 主题
+    @:param comment主题下评论列表
     """
+    prefix = "http://guba.eastmoney.com"
+
     def __init__(self, nodeId, time, href):
         super().__init__(nodeId, time, "")
-        self.href = href
+        self.href = self.prefix + href
+        self.theme = ""
+        self.comment = []

@@ -8,3 +8,5 @@ class Node:
         self.nodeId = nodeId
         self.time = time
         self.content = content
+        self.href = ""
+        self.html = ""
