@@ -37,7 +37,7 @@ class Parser:
         timeElement = dom.xpath('//*/div[@class="zwlitime"]')
         contentElement = dom.xpath('//*/div[@class="zwlitext  stockcodec"]/div[@class="short_text"]')
         for i in range(len(timeElement)):
-            contentNode = ContentNode("content" + str(i), timeElement[i].text, contentElement[i].text.strip())
+            contentNode = ContentNode(themeNode.nodeId + "content" + str(i), timeElement[i].text, contentElement[i].text.strip())
             commentList.append(contentNode)
             print(strFormat.format(contentNode.nodeId, contentNode.time, contentNode.content))
         themeNode.commentList = commentList
