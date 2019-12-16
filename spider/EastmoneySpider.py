@@ -4,6 +4,7 @@
 from utils.Parser import Parser
 import urllib.request as ur
 from bean.RootNode import RootNode
+import jieba
 
 
 class Spider:
@@ -14,6 +15,7 @@ class Spider:
     def go(self):
         parse = Parser()
         try:
+            # 跟节点
             self.request(self.node)
             parse.themeParse(self.node)
             for theme in self.node.contextList:
@@ -34,7 +36,10 @@ class Spider:
 
 if __name__ == '__main__':
     code = "002243"
-    rootNode = RootNode(code)
-    spider = Spider(rootNode)
-    spider.go()
+    pageNum = 50
+    for i in range(pageNum):
+        rootNode = RootNode(code, i)
+        spider = Spider(rootNode)
+        spider.go()
+
 

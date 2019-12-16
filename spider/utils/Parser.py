@@ -5,9 +5,15 @@ from lxml import etree
 from lxml.html import fromstring, tostring
 from bean.ThemeNode import ThemeNode
 from bean.ContentNode import ContentNode
+import jieba
+from dao.LocalFile import LocalFile
 
 
 class Parser:
+
+    def __init__(self):
+        self.localFile = LocalFile()
+
     def themeParse(self, node):
         strFormat = "{:^1}  |  {:^8} | {:^10} | {:^1} | {:^1}"
         dom = etree.HTML(node.html)
@@ -39,5 +45,6 @@ class Parser:
         for i in range(len(timeElement)):
             contentNode = ContentNode(themeNode.nodeId + "content" + str(i), timeElement[i].text, contentElement[i].text.strip())
             commentList.append(contentNode)
-            print(strFormat.format(contentNode.nodeId, contentNode.time, contentNode.content))
+            # print(strFormat.format(contentNode.nodeId, contentNode.time, contentNode.content))
+            self.localFile.save(" ".join(jieba.cut(contentNode.content)))
         themeNode.commentList = commentList

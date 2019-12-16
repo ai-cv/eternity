@@ -28,8 +28,9 @@ data = pd.DataFrame(pd.read_csv('../test/data/600570.csv', encoding='unicode_esc
 data = data.sort_index()  # 按日期升序排列
 # 抽取需要的列组成新的表
 stdata = pd.DataFrame({'DateTime': data.index, 'Open': data.open, 'High': data.hign, 'Close': data.close, 'Low': data.low})
-# stdata['DateTime'] = mdates.date2num(stdata['DateTime'].astype(datetime.date))  # 把日期转化成天数，从公元0年开始算
 stdata['DateTime'] = [datetime.datetime.strptime(i, time_format) for i in stdata['DateTime']]
+stdata['DateTime'] = mdates.date2num(stdata['DateTime'].astype(datetime.date))  # 把日期转化成天数，从公元0年开始算
+# stdata['DateTime'] = [(datetime.datetime.strptime(i, time_format) - datetime.datetime.strptime("1970-01-01", time_format)).days for i in stdata['DateTime']]
 
 # stdata=stdata.set_index('DateTime')
 # stdata.drop(data.columns[6:],axis=1,inplace=True),stdata['Volume']=data.涨跌幅,del stdata['名称']
@@ -43,8 +44,8 @@ def main():
     SP = len(daysreshape.DateTime.values[MA2 - 1:])
     fig = plt.figure(facecolor='#07000d', figsize=(15, 10))
 
-    # ax1 = plt.subplot2grid((6, 4), (1, 0), rowspan=4, colspan=4, axisbg='#07000d')
-    ax1 = plt.subplot2grid((6, 4), (1, 0), rowspan=4, colspan=4)
+    ax1 = plt.subplot2grid((6, 4), (1, 0), rowspan=4, colspan=4, facecolor='#07000d')
+    # ax1 = plt.subplot2grid((6, 4), (1, 0), rowspan=4, colspan=4)
     candlestick_ohlc(ax1, daysreshape.values[-SP:], width=.6, colorup='#ff1717', colordown='#53c156')
     Label1 = str(MA1) + ' SMA'
     Label2 = str(MA2) + ' SMA'
