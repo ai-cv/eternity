@@ -4,7 +4,6 @@
 from utils.Parser import Parser
 import urllib.request as ur
 from bean.RootNode import RootNode
-import jieba
 
 
 class Spider:
@@ -17,10 +16,10 @@ class Spider:
         try:
             # 跟节点
             self.request(self.node)
-            parse.themeParse(self.node)
+            parse.theme_parse(self.node)
             for theme in self.node.contextList:
                 self.request(theme)
-                parse.commentParse(theme)
+                parse.comment_parse(theme)
 
         except ur.URLError as e:
             if hasattr(e, "code"):
