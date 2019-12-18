@@ -43,17 +43,26 @@ class Parser:
         # str_format = "{:^1}  |  {:^8} | {:^10}"
         comment_list = []
         dom = etree.HTML(theme_node.html)
-        theme_node.theme = "".join(dom.xpath('//*/div[contains(@class,"xeditor")]/text()')).strip()
+        theme_text = self.str_strim("".join(dom.xpath('string(//*/div[contains(@class,"xeditor")])')))
+        theme_node.theme = theme_text
         # 保存主题
         self.local_file.save(self.segment.cut(theme_node.theme))
         time_element = dom.xpath('//*/div[@class="zwlitime"]')
         content_element = dom.xpath('//*/div[@class="zwlitext  stockcodec"]/div[@class="short_text"]')
-        for i in range(len(time_element)):
-            text = content_element[i].text.strip()
-            if len(text) < 3:
-                continue
-            content_node = ContentNode(theme_node.nodeId + "content" + str(i), content_element[i].text, content_element[i].text.strip())
-            comment_list.append(content_node)
-            # print(str_format.format(contentNode.nodeId, contentNode.time, contentNode.content))
-            self.local_file.save(self.segment.cut(content_node.content))
-        theme_node.commentList = comment_list
+        try:
+            # 评论和时间解析可能对不上
+            for i in range(len(time_element)):
+                text = self.str_strim(content_element[i].text)
+                if len(text) < 3:
+                    continue
+                content_node = ContentNode(theme_node.nodeId + "content" + str(i), time_element[i].text, text)
+                comment_list.append(content_node)
+                # print(str_format.format(contentNode.nodeId, contentNode.time, contentNode.content))
+                self.local_file.save(self.segment.cut(content_node.content))
+            theme_node.commentList = comment_list
+
+        except:
+            print(theme_node.href)
+
+    def str_strim(self, line):
+        return line.strip().strip().replace(" ", "").replace("\r", "").replace("\n", "")
