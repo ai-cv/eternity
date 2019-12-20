@@ -180,25 +180,25 @@ def word2vec_basic(log_dir):
   with graph.as_default():
 
     # Input data.
-    with tf.name_scope('inputs'):
-      train_inputs = tf.placeholder(tf.int32, shape=[batch_size])
-      train_labels = tf.placeholder(tf.int32, shape=[batch_size, 1])
+    with tf.compat.v1.name_scope('inputs'):
+      train_inputs = tf.compat.v1.placeholder(tf.int32, shape=[batch_size])
+      train_labels = tf.compat.v1.placeholder(tf.int32, shape=[batch_size, 1])
       valid_dataset = tf.constant(valid_examples, dtype=tf.int32)
 
     # Ops and variables pinned to the CPU because of missing GPU implementation
     with tf.device('/cpu:0'):
       # Look up embeddings for inputs.
-      with tf.name_scope('embeddings'):
+      with tf.compat.v1.name_scope('embeddings'):
         embeddings = tf.Variable(
-            tf.random_uniform([vocabulary_size, embedding_size], -1.0, 1.0))
-        embed = tf.nn.embedding_lookup(embeddings, train_inputs)
+            tf.random.uniform([vocabulary_size, embedding_size], -1.0, 1.0))
+        embed = tf.nn.embedding_lookup(params=embeddings, ids=train_inputs)
 
       # Construct the variables for the NCE loss
-      with tf.name_scope('weights'):
+      with tf.compat.v1.name_scope('weights'):
         nce_weights = tf.Variable(
-            tf.truncated_normal([vocabulary_size, embedding_size],
+            tf.random.truncated_normal([vocabulary_size, embedding_size],
                                 stddev=1.0 / math.sqrt(embedding_size)))
-      with tf.name_scope('biases'):
+      with tf.compat.v1.name_scope('biases'):
         nce_biases = tf.Variable(tf.zeros([vocabulary_size]))
 
     # Compute the average NCE loss for the batch.
@@ -206,9 +206,9 @@ def word2vec_basic(log_dir):
     # time we evaluate the loss.
     # Explanation of the meaning of NCE loss:
     #   http://mccormickml.com/2016/04/19/word2vec-tutorial-the-skip-gram-model/
-    with tf.name_scope('loss'):
+    with tf.compat.v1.name_scope('loss'):
       loss = tf.reduce_mean(
-          tf.nn.nce_loss(
+          input_tensor=tf.nn.nce_loss(
               weights=nce_weights,
               biases=nce_biases,
               labels=train_labels,
@@ -217,36 +217,36 @@ def word2vec_basic(log_dir):
               num_classes=vocabulary_size))
 
     # Add the loss value as a scalar to summary.
-    tf.summary.scalar('loss', loss)
+    tf.compat.v1.summary.scalar('loss', loss)
 
     # Construct the SGD optimizer using a learning rate of 1.0.
-    with tf.name_scope('optimizer'):
-      optimizer = tf.train.GradientDescentOptimizer(1.0).minimize(loss)
+    with tf.compat.v1.name_scope('optimizer'):
+      optimizer = tf.compat.v1.train.GradientDescentOptimizer(1.0).minimize(loss)
 
     # Compute the cosine similarity between minibatch examples and all
     # embeddings.
-    norm = tf.sqrt(tf.reduce_sum(tf.square(embeddings), 1, keepdims=True))
+    norm = tf.sqrt(tf.reduce_sum(input_tensor=tf.square(embeddings), axis=1, keepdims=True))
     normalized_embeddings = embeddings / norm
-    valid_embeddings = tf.nn.embedding_lookup(normalized_embeddings,
-                                              valid_dataset)
+    valid_embeddings = tf.nn.embedding_lookup(params=normalized_embeddings,
+                                              ids=valid_dataset)
     similarity = tf.matmul(
         valid_embeddings, normalized_embeddings, transpose_b=True)
 
     # Merge all summaries.
-    merged = tf.summary.merge_all()
+    merged = tf.compat.v1.summary.merge_all()
 
     # Add variable initializer.
-    init = tf.global_variables_initializer()
+    init = tf.compat.v1.global_variables_initializer()
 
     # Create a saver.
-    saver = tf.train.Saver()
+    saver = tf.compat.v1.train.Saver()
 
   # Step 5: Begin training.
   num_steps = 100001
 
   with tf.compat.v1.Session(graph=graph) as session:
     # Open a writer to write summaries.
-    writer = tf.summary.FileWriter(log_dir, session.graph)
+    writer = tf.compat.v1.summary.FileWriter(log_dir, session.graph)
 
     # We must initialize all variables before we use them.
     init.run()
@@ -259,7 +259,7 @@ def word2vec_basic(log_dir):
       feed_dict = {train_inputs: batch_inputs, train_labels: batch_labels}
 
       # Define metadata variable.
-      run_metadata = tf.RunMetadata()
+      run_metadata = tf.compat.v1.RunMetadata()
 
       # We perform one update step by evaluating the optimizer op (including it
       # in the list of returned values for session.run()
@@ -374,4 +374,4 @@ def main(unused_argv):
 
 
 if __name__ == '__main__':
-  tf.app.run()
+  tf.compat.v1.app.run()
