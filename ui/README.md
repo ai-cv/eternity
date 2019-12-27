@@ -1,119 +1,197 @@
-<p align="center"><a href="https://blog.csdn.net/csdn_yudong/article/details/85250412"><img width="120" src="https://raw.githubusercontent.com/Neveryu/vue-cms/master/static/image/login-logo.png"></a></p>
+# vue-manage-system
 
-<p align="center">基于 Vue 和 ElementUI 构建的企业级后台管理项目</p>
-
-<p align="center">
-  <a href="https://github.com/vuejs/vue" rel="nofollow" target="_blank">
+<a href="https://github.com/vuejs/vue">
     <img src="https://img.shields.io/badge/vue-2.6.10-brightgreen.svg" alt="vue">
   </a>
-  <a href="https://github.com/ElemeFE/element" rel="nofollow" target="_blank">
-    <img src="https://img.shields.io/badge/element--ui-2.9.2-brightgreen.svg" alt="element-ui">
+  <a href="https://github.com/ElemeFE/element">
+    <img src="https://img.shields.io/badge/element--ui-2.8.2-brightgreen.svg" alt="element-ui">
   </a>
-  <a href="https://travis-ci.org/Neveryu/vue-cms" rel="nofollow" target="_blank">
-    <img src="https://travis-ci.org/Neveryu/vue-cms.svg?branch=master" alt="Build Status">
-  </a>
-  <a href="https://github.com/Neveryu/vue-cms/blob/master/LICENSE">
+  <a href="https://github.com/lin-xin/vue-manage-system/blob/master/LICENSE">
     <img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="license">
   </a>
-  <a href="https://neveryu.github.io/reward/index.html" target="_blank">
+  <a href="https://github.com/lin-xin/vue-manage-system/releases">
+    <img src="https://img.shields.io/github/release/lin-xin/vue-manage-system.svg" alt="GitHub release">
+  </a>
+  <a href="https://lin-xin.gitee.io/example/work/#/donate">
     <img src="https://img.shields.io/badge/%24-donate-ff69b4.svg" alt="donate">
   </a>
-</p>
 
-## 预览
-在线体验：[https://git.io/fp9UM](https://neveryu.github.io/vue-cms/index.html)
+基于 Vue + Element UI 的后台管理系统解决方案。[线上地址](https://lin-xin.gitee.io/example/work/)
 
-## 简介
-`vue-cms` 是一个企业级管理后台项目，基于 Vue 和 ElementUI 构建。它使用了最新的前端技术栈，内置了i18n国际化解决方案，支持多语言，动态路由，权限验证，登录注册，等很多功能特性。
+> React + Ant Design 的版本正在开发中，仓库地址：[react-manage-system](https://github.com/lin-xin/react-manage-system)
 
-同时，它也是一个很好的学习项目，包含了一些常见问题的解决方案，比如：数据可视化，表单表格，导入导出，自定义组件，自定义指令，富文本，换肤等等。
+[English document](https://github.com/lin-xin/manage-system/blob/master/README_EN.md)
 
-## 写在前面
-请确保你安装了 [node](https://nodejs.org/en/) 和 [git](https://git-scm.com/)，与此同时，你应该对 [Vue](https://cn.vuejs.org/v2/guide/)、[Vuex](https://vuex.vuejs.org/zh/)、[Vue Router](https://router.vuejs.org/zh/)、[ES2015+](http://es6.ruanyifeng.com/)、[ElementUI](http://element-cn.eleme.io/#/zh-CN) 有所了解。我们的请求有使用 [Mock.js](https://github.com/nuysoft/Mock/wiki/Getting-Started) 模拟，也有使用线上真实的接口数据，提前了解和学习这些知识会对使用本项目有很大的帮助。
+## 项目截图
 
-## Build Setup
+### 登录
 
-``` bash
-# 克隆项目
-git clone https://github.com/Neveryu/vue-cms.git
+![Image text](https://github.com/lin-xin/manage-system/raw/master/screenshots/wms3.png)
 
-# 进入项目
-cd vue-cms
+### 默认皮肤
 
-# install dependencies
-npm install
+![Image text](https://github.com/lin-xin/manage-system/raw/master/screenshots/wms1.png)
 
-// 或者
+### 浅绿色皮肤
 
-# 建议不要用 cnpm 安装 会有各种诡异的bug 可以通过如下操作解决 npm 下载速度慢的问题
-npm install --registry=https://registry.npm.taobao.org
+![Image text](https://github.com/lin-xin/manage-system/raw/master/screenshots/wms2.png)
 
-# serve with hot reload at localhost:8080
-npm start
-```
+## 赞赏
 
-浏览器访问 [http://localhost:8080](http://localhost:8080)
+请作者喝杯咖啡吧！(微信号：linxin_20)
 
-## 构建发布
+![微信扫一扫](https://lin-xin.gitee.io/images/weixin.jpg)
 
-```
-# build for production with minification
-npm run build
+## 特别鸣谢
 
-# build for production and view the bundle analyzer report
-npm run build --report
-```
+- [实验楼](https://www.shiyanlou.com?source=vue-manage-system)
+
+## 前言
+
+该方案作为一套多功能的后台框架模板，适用于绝大部分的后台管理系统（Web Management System）开发。基于 vue.js，使用 vue-cli3 脚手架，引用 Element UI 组件库，方便开发快速简洁好看的组件。分离颜色样式，支持手动切换主题色，而且很方便使用自定义主题色。
 
 ## 功能
+
+-   [x] Element UI
+-   [x] 登录/注销
+-   [x] Dashboard
+-   [x] 表格
+-   [x] Tab 选项卡
+-   [x] 表单
+-   [x] 图表 :bar_chart:
+-   [x] 富文本编辑器
+-   [x] markdown 编辑器
+-   [x] 图片拖拽/裁剪上传
+-   [x] 支持切换主题色 :sparkles:
+-   [x] 列表拖拽排序
+-   [x] 权限测试
+-   [x] 404 / 403
+-   [x] 三级菜单
+-   [x] 自定义图标
+-   [x] 可拖拽弹窗
+-   [x] 国际化
+
+## 安装步骤
+
 ```
-- 登录/注销
-- 权限验证
-- 多环境发布
-- 动态侧边栏（支持多级路由）
-- better-scroll
-- 国际化多语言
-- Screenfull全屏
-- 列表拖拽
-- Svg Sprite 图标
-- Dashboard
-- 本地mock数据
-- Echarts图表
-- 导出excel
-- 导出zip
-- 前端可视化excel
-- CountTo
-- 自定义组件
-- 换肤
-- 富文本
+git clone https://github.com/lin-xin/vue-manage-system.git      // 把模板下载到本地
+cd vue-manage-system    // 进入模板目录
+npm install         // 安装项目依赖，等待安装完成之后，安装失败可用 cnpm 或 yarn
+
+// 开启服务器，浏览器访问 http://localhost:8080
+npm run serve
+
+// 执行构建命令，生成的dist文件夹放在服务器下即可访问
+npm run build
 ```
 
-## 截图
-![](./resource/screenhot3.png)
-![](./resource/screenhot1.png)
-![](./resource/screenhot2.png)
-![](./resource/screenhot4.png)
+## 组件使用说明与演示
 
-## Online Demo
+### vue-schart
 
-[在线 Demo](https://neveryu.github.io/vue-cms/index.html)
+vue.js 封装 sChart.js 的图表组件。访问地址：[vue-schart](https://github.com/linxin/vue-schart)
 
-## Donate
+<p><a href="https://www.npmjs.com/package/vue-schart"><img src="https://img.shields.io/npm/dm/vue-schart.svg" alt="Downloads"></a></p>
 
-如果你觉得这个项目帮助到了你，你可以帮作者买一杯果汁表示鼓励 :tropical_drink:
+```html
+<template>
+    <div>
+        <schart class="wrapper" canvasId="myCanvas" :options="options"></schart>
+    </div>
+</template>
 
-<img src="https://neveryu.github.io/reward/wechat-alipay.png" alt="donate" width="650">
+<script>
+    import Schart from 'vue-schart'; // 导入Schart组件
+    export default {
+        data() {
+            return {
+                options: {
+                    type: 'bar',
+                    title: {
+                        text: '最近一周各品类销售图'
+                    },
+                    labels: ['周一', '周二', '周三', '周四', '周五'],
+                    datasets: [
+                        {
+                            label: '家电',
+                            data: [234, 278, 270, 190, 230]
+                        },
+                        {
+                            label: '百货',
+                            data: [164, 178, 190, 135, 160]
+                        },
+                        {
+                            label: '食品',
+                            data: [144, 198, 150, 235, 120]
+                        }
+                    ]
+                }
+            };
+        },
+        components: {
+            Schart
+        }
+    };
+</script>
+<style>
+    .wrapper {
+        width: 7rem;
+        height: 5rem;
+    }
+</style>
+```
 
+## 其他注意事项
 
-## Browsers support
+### 一、如果我不想用到上面的某些组件呢，那我怎么在模板中删除掉不影响到其他功能呢？
 
-Modern browsers and Internet Explorer 10+.
+举个栗子，我不想用 Vue-Quill-Editor 这个组件，那我需要分四步走。
 
-| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari |
-| --------- | --------- | --------- | --------- |
-| IE10, IE11, Edge| last 2 versions| last 2 versions| last 2 versions
+第一步：删除该组件的路由，在目录 src/router/index.js 中，找到引入改组件的路由，删除下面这段代码。
+
+```JavaScript
+{
+    // 富文本编辑器组件
+    path: '/editor',
+    component: resolve => require(['../components/page/VueEditor.vue'], resolve)
+},
+```
+
+第二步：删除引入该组件的文件。在目录 src/components/page/ 删除 VueEditor.vue 文件。
+
+第三步：删除该页面的入口。在目录 src/components/common/Sidebar.vue 中，找到该入口，删除下面这段代码。
+
+```js
+{
+	index: 'editor',
+	title: '富文本编辑器'
+},
+```
+
+第四步：卸载该组件。执行以下命令：
+npm un vue-quill-editor -S
+
+完成。
+
+### 二、如何切换主题色呢？
+
+第一步：打开 src/main.js 文件，找到引入 element 样式的地方，换成浅绿色主题。
+
+```javascript
+import 'element-ui/lib/theme-default/index.css'; // 默认主题
+// import './assets/css/theme-green/index.css';       // 浅绿色主题
+```
+
+第二步：打开 src/App.vue 文件，找到 style 标签引入样式的地方，切换成浅绿色主题。
+
+```javascript
+@import "./assets/css/main.css";
+@import "./assets/css/color-dark.css";     /*深色主题*/
+/*@import "./assets/css/theme-green/color-green.css";   !*浅绿色主题*!*/
+```
+
+第三步：打开 src/components/common/Sidebar.vue 文件，找到 el-menu 标签，把 background-color/text-color/active-text-color 属性去掉即可。
 
 ## License
 
-[MIT](https://github.com/Neveryu/vue-cms/blob/master/LICENSE)
-
-Copyright (c) 2017-present NeverYu
+[MIT](https://github.com/lin-xin/vue-manage-system/blob/master/LICENSE)
