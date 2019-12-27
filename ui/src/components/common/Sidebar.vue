@@ -170,10 +170,10 @@ export default {
 
 <style scoped>
 .sidebar {
-    /* display: block; */
-    position: relative;
+    display: block;
+    position: absolute;
     left: 0;
-    top: 0;
+    top: 70px;
     bottom: 0;
     overflow-y: scroll;
 }
