@@ -1,197 +1,217 @@
-# vue-manage-system
+<p align="center">
+  <img width="320" src="https://wpimg.wallstcn.com/ecc53a42-d79b-42e2-8852-5126b810a4c8.svg">
+</p>
 
-<a href="https://github.com/vuejs/vue">
+<p align="center">
+  <a href="https://github.com/vuejs/vue">
     <img src="https://img.shields.io/badge/vue-2.6.10-brightgreen.svg" alt="vue">
   </a>
   <a href="https://github.com/ElemeFE/element">
-    <img src="https://img.shields.io/badge/element--ui-2.8.2-brightgreen.svg" alt="element-ui">
+    <img src="https://img.shields.io/badge/element--ui-2.7.0-brightgreen.svg" alt="element-ui">
   </a>
-  <a href="https://github.com/lin-xin/vue-manage-system/blob/master/LICENSE">
+  <a href="https://travis-ci.org/PanJiaChen/vue-element-admin" rel="nofollow">
+    <img src="https://travis-ci.org/PanJiaChen/vue-element-admin.svg?branch=master" alt="Build Status">
+  </a>
+  <a href="https://github.com/PanJiaChen/vue-element-admin/blob/master/LICENSE">
     <img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="license">
   </a>
-  <a href="https://github.com/lin-xin/vue-manage-system/releases">
-    <img src="https://img.shields.io/github/release/lin-xin/vue-manage-system.svg" alt="GitHub release">
+  <a href="https://github.com/PanJiaChen/vue-element-admin/releases">
+    <img src="https://img.shields.io/github/release/PanJiaChen/vue-element-admin.svg" alt="GitHub release">
   </a>
-  <a href="https://lin-xin.gitee.io/example/work/#/donate">
+  <a href="https://gitter.im/vue-element-admin/discuss">
+    <img src="https://badges.gitter.im/Join%20Chat.svg" alt="gitter">
+  </a>
+  <a href="https://panjiachen.github.io/vue-element-admin-site/donate">
     <img src="https://img.shields.io/badge/%24-donate-ff69b4.svg" alt="donate">
   </a>
+</p>
 
-基于 Vue + Element UI 的后台管理系统解决方案。[线上地址](https://lin-xin.gitee.io/example/work/)
+English | [简体中文](./README.zh-CN.md) | [日本語](./README.ja.md) | [Spanish](./README.es.md)
 
-> React + Ant Design 的版本正在开发中，仓库地址：[react-manage-system](https://github.com/lin-xin/react-manage-system)
+## Introduction
 
-[English document](https://github.com/lin-xin/manage-system/blob/master/README_EN.md)
+[vue-element-admin](https://panjiachen.github.io/vue-element-admin) is a production-ready front-end solution for admin interfaces. It is based on [vue](https://github.com/vuejs/vue) and uses the UI Toolkit [element-ui](https://github.com/ElemeFE/element).
 
-## 项目截图
+[vue-element-admin](https://panjiachen.github.io/vue-element-admin) is based on the newest development stack of vue and it has a built-in i18n solution, typical templates for enterprise applications, and lots of awesome features. It helps you build large and complex Single-Page Applications. I believe whatever your needs are, this project will help you.
 
-### 登录
+- [Preview](https://panjiachen.github.io/vue-element-admin)
 
-![Image text](https://github.com/lin-xin/manage-system/raw/master/screenshots/wms3.png)
+- [Documentation](https://panjiachen.github.io/vue-element-admin-site/)
 
-### 默认皮肤
+- [Gitter](https://gitter.im/vue-element-admin/discuss)
 
-![Image text](https://github.com/lin-xin/manage-system/raw/master/screenshots/wms1.png)
+- [Donate](https://panjiachen.github.io/vue-element-admin-site/donate/)
 
-### 浅绿色皮肤
+- [Wiki](https://github.com/PanJiaChen/vue-element-admin/wiki)
 
-![Image text](https://github.com/lin-xin/manage-system/raw/master/screenshots/wms2.png)
+- [Gitee](https://panjiachen.gitee.io/vue-element-admin/) 国内用户可访问该地址在线预览
 
-## 赞赏
+- Base template recommends using: [vue-admin-template](https://github.com/PanJiaChen/vue-admin-template)
+- Desktop: [electron-vue-admin](https://github.com/PanJiaChen/electron-vue-admin)
+- Typescript: [vue-typescript-admin-template](https://github.com/Armour/vue-typescript-admin-template) (Credits: [@Armour](https://github.com/Armour))
+- [awesome-project](https://github.com/PanJiaChen/vue-element-admin/issues/2312)
 
-请作者喝杯咖啡吧！(微信号：linxin_20)
+**After the `v4.1.0+` version, the default master branch will not support i18n. Please use [i18n Branch](https://github.com/PanJiaChen/vue-element-admin/tree/i18n), it will keep up with the master update**
 
-![微信扫一扫](https://lin-xin.gitee.io/images/weixin.jpg)
+**The current version is `v4.0+` build on `vue-cli`. If you find a problem, please put [issue](https://github.com/PanJiaChen/vue-element-admin/issues/new). If you want to use the old version , you can switch branch to [tag/3.11.0](https://github.com/PanJiaChen/vue-element-admin/tree/tag/3.11.0), it does not rely on `vue-cli`**
 
-## 特别鸣谢
+**This project does not support low version browsers (e.g. IE). Please add polyfill by yourself.**
 
-- [实验楼](https://www.shiyanlou.com?source=vue-manage-system)
+## Preparation
 
-## 前言
+You need to install [node](https://nodejs.org/) and [git](https://git-scm.com/) locally. The project is based on [ES2015+](https://es6.ruanyifeng.com/), [vue](https://cn.vuejs.org/index.html), [vuex](https://vuex.vuejs.org/zh-cn/), [vue-router](https://router.vuejs.org/zh-cn/), [vue-cli](https://github.com/vuejs/vue-cli) , [axios](https://github.com/axios/axios) and [element-ui](https://github.com/ElemeFE/element), all request data is simulated using [Mock.js](https://github.com/nuysoft/Mock).
+Understanding and learning this knowledge in advance will greatly help the use of this project.
 
-该方案作为一套多功能的后台框架模板，适用于绝大部分的后台管理系统（Web Management System）开发。基于 vue.js，使用 vue-cli3 脚手架，引用 Element UI 组件库，方便开发快速简洁好看的组件。分离颜色样式，支持手动切换主题色，而且很方便使用自定义主题色。
+ <p align="center">
+  <img width="900" src="https://wpimg.wallstcn.com/a5894c1b-f6af-456e-82df-1151da0839bf.png">
+</p>
 
-## 功能
+## Sponsors
 
--   [x] Element UI
--   [x] 登录/注销
--   [x] Dashboard
--   [x] 表格
--   [x] Tab 选项卡
--   [x] 表单
--   [x] 图表 :bar_chart:
--   [x] 富文本编辑器
--   [x] markdown 编辑器
--   [x] 图片拖拽/裁剪上传
--   [x] 支持切换主题色 :sparkles:
--   [x] 列表拖拽排序
--   [x] 权限测试
--   [x] 404 / 403
--   [x] 三级菜单
--   [x] 自定义图标
--   [x] 可拖拽弹窗
--   [x] 国际化
+Become a sponsor and get your logo on our README on GitHub with a link to your site. [[Become a sponsor]](https://www.patreon.com/panjiachen)
 
-## 安装步骤
+<a href="https://flatlogic.com/admin-dashboards?from=vue-element-admin"><img width="150px" src="https://wpimg.wallstcn.com/9c0b719b-5551-4c1e-b776-63994632d94a.png" /></a><p>Admin Dashboard Templates made with Vue, React and Angular.</p>
+
+## Features
 
 ```
-git clone https://github.com/lin-xin/vue-manage-system.git      // 把模板下载到本地
-cd vue-manage-system    // 进入模板目录
-npm install         // 安装项目依赖，等待安装完成之后，安装失败可用 cnpm 或 yarn
+- Login / Logout
 
-// 开启服务器，浏览器访问 http://localhost:8080
-npm run serve
+- Permission Authentication
+  - Page permission
+  - Directive permission
+  - Permission configuration page
+  - Two-step login
 
-// 执行构建命令，生成的dist文件夹放在服务器下即可访问
-npm run build
+- Multi-environment build
+  - dev sit stage prod
+
+- Global Features
+  - I18n
+  - Multiple dynamic themes
+  - Dynamic sidebar (supports multi-level routing)
+  - Dynamic breadcrumb
+  - Tags-view (Tab page Support right-click operation)
+  - Svg Sprite
+  - Mock data
+  - Screenfull
+  - Responsive Sidebar
+
+- Editor
+  - Rich Text Editor
+  - Markdown Editor
+  - JSON Editor
+
+- Excel
+  - Export Excel
+  - Upload Excel
+  - Visualization Excel
+  - Export zip
+
+- Table
+  - Dynamic Table
+  - Drag And Drop Table
+  - Inline Edit Table
+
+- Error Page
+  - 401
+  - 404
+
+- Components
+  - Avatar Upload
+  - Back To Top
+  - Drag Dialog
+  - Drag Select
+  - Drag Kanban
+  - Drag List
+  - SplitPane
+  - Dropzone
+  - Sticky
+  - CountTo
+
+- Advanced Example
+- Error Log
+- Dashboard
+- Guide Page
+- ECharts
+- Clipboard
+- Markdown to html
 ```
 
-## 组件使用说明与演示
+## Getting started
 
-### vue-schart
+```bash
+# clone the project
+git clone -b i18n git@github.com:PanJiaChen/vue-element-admin.git
 
-vue.js 封装 sChart.js 的图表组件。访问地址：[vue-schart](https://github.com/linxin/vue-schart)
+# enter the project directory
+cd vue-element-admin
 
-<p><a href="https://www.npmjs.com/package/vue-schart"><img src="https://img.shields.io/npm/dm/vue-schart.svg" alt="Downloads"></a></p>
+# install dependency
+npm install
 
-```html
-<template>
-    <div>
-        <schart class="wrapper" canvasId="myCanvas" :options="options"></schart>
-    </div>
-</template>
-
-<script>
-    import Schart from 'vue-schart'; // 导入Schart组件
-    export default {
-        data() {
-            return {
-                options: {
-                    type: 'bar',
-                    title: {
-                        text: '最近一周各品类销售图'
-                    },
-                    labels: ['周一', '周二', '周三', '周四', '周五'],
-                    datasets: [
-                        {
-                            label: '家电',
-                            data: [234, 278, 270, 190, 230]
-                        },
-                        {
-                            label: '百货',
-                            data: [164, 178, 190, 135, 160]
-                        },
-                        {
-                            label: '食品',
-                            data: [144, 198, 150, 235, 120]
-                        }
-                    ]
-                }
-            };
-        },
-        components: {
-            Schart
-        }
-    };
-</script>
-<style>
-    .wrapper {
-        width: 7rem;
-        height: 5rem;
-    }
-</style>
+# develop
+npm run dev
 ```
 
-## 其他注意事项
+This will automatically open http://localhost:9527
 
-### 一、如果我不想用到上面的某些组件呢，那我怎么在模板中删除掉不影响到其他功能呢？
+## Build
 
-举个栗子，我不想用 Vue-Quill-Editor 这个组件，那我需要分四步走。
+```bash
+# build for test environment
+npm run build:stage
 
-第一步：删除该组件的路由，在目录 src/router/index.js 中，找到引入改组件的路由，删除下面这段代码。
-
-```JavaScript
-{
-    // 富文本编辑器组件
-    path: '/editor',
-    component: resolve => require(['../components/page/VueEditor.vue'], resolve)
-},
+# build for production environment
+npm run build:prod
 ```
 
-第二步：删除引入该组件的文件。在目录 src/components/page/ 删除 VueEditor.vue 文件。
+## Advanced
 
-第三步：删除该页面的入口。在目录 src/components/common/Sidebar.vue 中，找到该入口，删除下面这段代码。
+```bash
+# preview the release environment effect
+npm run preview
 
-```js
-{
-	index: 'editor',
-	title: '富文本编辑器'
-},
+# preview the release environment effect + static resource analysis
+npm run preview -- --report
+
+# code format check
+npm run lint
+
+# code format check and auto fix
+npm run lint -- --fix
 ```
 
-第四步：卸载该组件。执行以下命令：
-npm un vue-quill-editor -S
+Refer to [Documentation](https://panjiachen.github.io/vue-element-admin-site/guide/essentials/deploy.html) for more information
 
-完成。
+## Changelog
 
-### 二、如何切换主题色呢？
+Detailed changes for each release are documented in the [release notes](https://github.com/PanJiaChen/vue-element-admin/releases).
 
-第一步：打开 src/main.js 文件，找到引入 element 样式的地方，换成浅绿色主题。
+## Online Demo
 
-```javascript
-import 'element-ui/lib/theme-default/index.css'; // 默认主题
-// import './assets/css/theme-green/index.css';       // 浅绿色主题
-```
+[Preview](https://panjiachen.github.io/vue-element-admin)
 
-第二步：打开 src/App.vue 文件，找到 style 标签引入样式的地方，切换成浅绿色主题。
+## Donate
 
-```javascript
-@import "./assets/css/main.css";
-@import "./assets/css/color-dark.css";     /*深色主题*/
-/*@import "./assets/css/theme-green/color-green.css";   !*浅绿色主题*!*/
-```
+If you find this project useful, you can buy author a glass of juice :tropical_drink:
 
-第三步：打开 src/components/common/Sidebar.vue 文件，找到 el-menu 标签，把 background-color/text-color/active-text-color 属性去掉即可。
+![donate](https://wpimg.wallstcn.com/bd273f0d-83a0-4ef2-92e1-9ac8ed3746b9.png)
+
+[Paypal Me](https://www.paypal.me/panfree23)
+
+[Buy me a coffee](https://www.buymeacoffee.com/Pan)
+
+## Browsers support
+
+Modern browsers and Internet Explorer 10+.
+
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>Safari |
+| --------- | --------- | --------- | --------- |
+| IE10, IE11, Edge| last 2 versions| last 2 versions| last 2 versions
 
 ## License
 
-[MIT](https://github.com/lin-xin/vue-manage-system/blob/master/LICENSE)
+[MIT](https://github.com/PanJiaChen/vue-element-admin/blob/master/LICENSE)
+
+Copyright (c) 2017-present PanJiaChen
