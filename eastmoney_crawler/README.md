@@ -31,3 +31,8 @@ display.start()
 
 若要使用增量更新，将main.py中`method = 'update'`即可。
 
+## 依赖安装
+### redis
+linux:  sudo apt-get install redis*
+python: pip3 install redis
+
